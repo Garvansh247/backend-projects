@@ -7,15 +7,16 @@ import './App.css'
 function App() {
   const [data,setData]=useState([]);
 
-  useEffect(
-    ()=>{
-      axios.get('http://localhost:3000/api/data')
-      .then((response)=>{
-        setData(response.data);
-      })
-    },
-    []
-  )
+  useEffect(() => {
+        axios.get('/api/data')
+          .then((response) => {
+            setData(response.data)
+          })
+          .catch((error) => {
+            console.error("API Error:", error)
+            setData([])
+          })
+      },[])
 
 
 
@@ -25,7 +26,8 @@ function App() {
         <h1>Data from backend:</h1>
         <ul>
           {
-            data.map((item)=>(
+          
+            Array.isArray(data) && data.map((item)=>(
               <li key={item.id}>{item.name} - {item.age} years old</li>
             ))
           }
