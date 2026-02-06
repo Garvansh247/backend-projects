@@ -34,6 +34,11 @@ app.get(
                 id: 4,
                 name: 'Rohit',
                 age: 22
+            },
+            {
+                id: 5,
+                name: 'Priya',
+                age: 18
             }
         ]
 
