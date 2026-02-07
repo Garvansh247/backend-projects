@@ -63,7 +63,13 @@ const hospitalSchema= new mongoose.Schema(
             type: Number,
             min: [0, "Rating must be a positive number"],
             max: [5, "Rating cannot be more than 5"]
-        }
+        },
+        likes: [
+            {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "User"
+            }
+        ]
     },{timestamps: true}
 );
 
